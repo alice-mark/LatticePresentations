@@ -1,0 +1,57 @@
+         1 /home/alice/output/Trs0 run in one batch, output 3311 cycles
+      6560 /home/alice/output/Trs1 run in 60 batches of 110, output 160109 cycles
+    312685 /home/alice/output/Trs2 run in 100 batches of 3200, output 162847 cycles
+   1478190 /home/alice/output/Trs3 running in peanut 500 batches of 3000, output 135077 cycles
+   2588308 /home/alice/output/Trs4 run in 500 batches of 5200, output 75533 cycles
+   3332494 /home/alice/output/Trs5 run in 1000 batches of 3340, output 85743 cycles 
+   4100361 /home/alice/output/Trs6 run in 1000 batches of 4101, output 98605 cycles
+   4756693 /home/alice/output/Trs7 run in 1000 batches of 4760, output 38149 cycles
+   5066351 /home/alice/output/Trs8 run in 1000 batches of 5070, output 13634 cycles
+   5012086 /home/alice/output/Trs9 run in 1000 batches 5020, output 41458 cycles
+   4706852 /home/alice/output/Trs10 run in 1000 batches of 4710, output 65839 cycles
+   4254787 /home/alice/output/Trs11 run in 1000 batches of 4260, output 28002 cycles
+   3740926 /home/alice/output/Trs12 run in 1000 batches of 3750, output 4900 cycles
+   3247937 /home/alice/output/Trs13 run in 1000 batches of 3250, output 5983 cycles
+   2799867 /home/alice/output/Trs14 run in 700 batches of 4000, output 20575 cycles
+   2397784 /home/alice/output/Trs15 run in 500 batches of 4800, output 20311 cycles
+   2054506 /home/alice/output/Trs16 run in 500 batches of 4110, output 3606 cycles
+   1754672 /home/alice/output/Trs17 run in 400 batches of 4400, output 914 cycles
+   1484063 /home/alice/output/Trs18 run in 350 batches of 4250, output 1037 cycles 
+   1257646 /home/alice/output/Trs19 run in 300 batches of 4200, output 1681 cycles
+   1058799 /home/alice/output/Trs20 run in 300 batches of 3600, output 988 cycles
+    885629 /home/alice/output/Trs21 run in 250 batches of 3600, output 173 cycles
+    738498 /home/alice/output/Trs22 run in 200 batches of 3700, output 5 cycles
+    610784 /home/alice/output/Trs23 run in 200 batches of 3060, output 0 cycles
+    500698 /home/alice/output/Trs24 run in 150 batches of 3400, output 0 cycles
+    407867 /home/alice/output/Trs25 run in 120 batches of 3400, output 0 cycles
+    331206 /home/alice/output/Trs26 run in 120 batches of 2761, output 0 cycles
+    266840 /home/alice/output/Trs27 run in 90 batches of 2970, 0 cycles
+    213531 /home/alice/output/Trs28 run in 90 batches of 2400, 0 cycles
+    169689 /home/alice/output/Trs29 run in 60 batches of 2830, 0 cycles
+    133052 /home/alice/output/Trs30 run in 60 batches of 2220, 0 cycles
+    104516 /home/alice/output/Trs31 run in 60 batches of 1750, 0 cycles
+     82505 /home/alice/output/Trs32 run in 54 batches of 1530, 0 cycles
+     64071 /home/alice/output/Trs33 run in 40 batches of 1610, 0 cycles
+     49625 /home/alice/output/Trs34 run in 32 batches of 1560, 0 cycles
+     37750 /home/alice/output/Trs35 run in 32 batches of 1180, 0 cycles
+     28984 /home/alice/output/Trs36 run in 16 batches of 1820, 0 cycles
+     22512 /home/alice/output/Trs37 run in 16 batches of 1410, 0 cycles
+     17410 /home/alice/output/Trs38 run in 16 batches of 1090, 0 cycles
+     12920 /home/alice/output/Trs39 run in 16 batches of 810, 0 cycles
+      9590 /home/alice/output/Trs40 run in 16 batches of 600, 0 cycles
+      7292 /home/alice/output/Trs41 run in 2 batches of 4600, 0 cycles
+      5508 /home/alice/output/Trs42 run in 16 batches of 350, 0 cycles
+      4020 /home/alice/output/Trs43 run in 16 batches of 252, 0 cycles
+      2681 /home/alice/output/Trs44 run in 16 batches of 168, 0 cycles
+      1590 /home/alice/output/Trs45 run in 10 batches of 160, 0 cycles
+       966 /home/alice/output/Trs46 run in 10 batches of 100, 0 cycles
+       507 /home/alice/output/Trs47 run in 10 batches of 51, 0 cycles
+       221 /home/alice/output/Trs48 run in 1 batch, 0 cycles 
+        47 /home/alice/output/Trs49 run in 1 batch, 0 cycles
+  60122077 total
+
+
+
+In total, we found 968480 cycles.
+
+

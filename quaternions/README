@@ -1,0 +1,10 @@
+Hello.
+
+To run everything, open a terminal and enter
+
+ >> sage hub.sage
+
+This is a lie.  I ran it in pieces, not all at once, and at some points I used some shell scripts to chop up and reassemble some text files.  those are not included.  The places where I did that are noted in comments in hub.sage.  Also, most of the code in that file is commented by default, and would need to be uncommented to run.
+
+
+--Alice
