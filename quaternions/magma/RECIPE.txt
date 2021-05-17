@@ -1,0 +1,144 @@
+The front matter is lines 1-137
+
+The back matter is -1 thru -12, with the monster at -3.  but sed doesn't do negative numbers like ed, so use wc -l to count the number of lines.
+
+
+so, I should pipe front matter to one place, back matter to another, -3 to hell, and the middle stuff elsewhere to be broken up.  Let n be the number of lines in the file.
+
+for Quaternions-conject.m, n = 11056
+for quaternions.m, n = 968629
+
+my pieces are:
+
+front matter  (lines 1 thru 137)
+
+middle stuff (138 thru n-12)
+
+the front of the back (n-11 thru n-3)
+
+the long line (line n-2)
+
+the last two lines (lines n-1 and n)
+
+The sed command does this:
+
+    >>> sed -n '#1,#2p' 'infilename' > outfilename
+
+where #1 is the starting line number and #2 is the ending line number
+
+So now, I need to break up the long line by inserting a "\n" after every ","
+I also need to remember that "rels := {" and "}" are at the beginning and end.
+
+loooooongline was chopped up into many lines using the sequence
+
+    >>> sed 's/, */, \
+    > /g' loooooongline > brokenline
+
+note that you do actually have to have those line breaks in your script, that's the newline character, annoyingly.  What this does is it replaces ', ' with comma newline.
+
+Now, this file should have 72 more lines than middlestuff, for the 72 relations from the stabilizer.  So, the next step is to break up middlestuff and brokenline in corresponding ways.  
+
+For this test, let's do 3 pieces.  For the actual thing, we'll do 10, but 3 allows for first- middle- and last-types.
+
+In the test, middlestuff has 10907 lines, so the chunk sizes will be 
+3635 lines 1-3635
+3636 lines 3636-7272
+3636 lines 7272-10907
+
+In the real thing, middlestuff has 968480 lines, so the chunks will all have size 96848
+
+middlestuffk is the file with the kth chunk of middlestuff.  brokenlinek is the file with the corresponding chunk of the long line, broken up and needing to be reassembled.  longlinek is the reassembled long line, now shorter.
+
+The code for making the middlestuff chunks in the test is is 
+    >>> sed -n '1,3635p' 'middlestuff' > middlestuff1
+    >>> sed -n '3636,7272p' 'middlestuff' > middlestuff2
+    >>> sed -n '7273,10907p' 'middlestuff' > middlestuff3
+The code for the brokenline chunks is more complicated because of those first 72 relations, and also that final comma or }.
+    >>> sed -n '1,3707p' 'brokenline' > brokenline1
+    >>> sed -n '1,72p' 'brokenline' > brokenline2
+    >>> sed -n '3708,7344p' 'brokenline' >> brokenline2
+    >>> sed -n '1,72p' 'brokenline' > brokenline3
+    >>> sed -n '7345,10979p' 'brokenline' >> brokenline3
+Now, make them one line again, and deal with the ends of 1 and 2.  I'm sure I'm using bad form and mixing UNIX styles, but alas I am a Googler not an expert.
+    >>> tr -d '\n' < brokenline1 | sed 's/.$//' > longline1
+    >>> tr -d '\n' < brokenline2 | sed 's/.$//' > longline2
+    >>> tr -d '\n' < brokenline3 > longline3
+    >>> echo "};" >> longline1
+    >>> echo "};" >> longline2
+
+Here's the real version
+
+sed -n '1,96848p' 'middlestuff' > middlestuff1
+sed -n '96849,193696p' 'middlestuff' > middlestuff2
+sed -n '193697,290544p' 'middlestuff' > middlestuff3
+sed -n '290545,387392p' 'middlestuff' > middlestuff4
+sed -n '387393,484240p' 'middlestuff' > middlestuff5
+sed -n '484241,581088p' 'middlestuff' > middlestuff6
+sed -n '581089,677936p' 'middlestuff' > middlestuff7
+sed -n '677937,774784p' 'middlestuff' > middlestuff8
+sed -n '774785,871632p' 'middlestuff' > middlestuff9
+sed -n '871633,968480p' 'middlestuff' > middlestuff10
+
+
+sed -n '1,96920p' 'brokenline' > brokenline1
+sed -n '1,72p' 'brokenline' > brokenline2
+sed -n '1,72p' 'brokenline' > brokenline3
+sed -n '1,72p' 'brokenline' > brokenline4
+sed -n '1,72p' 'brokenline' > brokenline5
+sed -n '1,72p' 'brokenline' > brokenline6
+sed -n '1,72p' 'brokenline' > brokenline7
+sed -n '1,72p' 'brokenline' > brokenline8
+sed -n '1,72p' 'brokenline' > brokenline9
+sed -n '1,72p' 'brokenline' > brokenline10
+sed -n '96921,193768p' 'brokenline' >> brokenline2
+sed -n '193769,290616p' 'brokenline' >> brokenline3
+sed -n '290617,387464p' 'brokenline' >> brokenline4
+sed -n '387465,484312p' 'brokenline' >> brokenline5
+sed -n '484313,581160p' 'brokenline' >> brokenline6
+sed -n '581161,678008p' 'brokenline' >> brokenline7
+sed -n '678009,774856p' 'brokenline' >> brokenline8
+sed -n '774857,871704p' 'brokenline' >> brokenline9
+sed -n '871705,968552p' 'brokenline' >> brokenline10
+
+tr -d '\n' < brokenline1 | sed 's/.$//' > longline1
+tr -d '\n' < brokenline2 | sed 's/.$//' > longline2
+tr -d '\n' < brokenline3 | sed 's/.$//' > longline3
+tr -d '\n' < brokenline4 | sed 's/.$//' > longline4
+tr -d '\n' < brokenline5 | sed 's/.$//' > longline5
+tr -d '\n' < brokenline6 | sed 's/.$//' > longline6
+tr -d '\n' < brokenline7 | sed 's/.$//' > longline7
+tr -d '\n' < brokenline8 | sed 's/.$//' > longline8
+tr -d '\n' < brokenline9 | sed 's/.$//' > longline9
+tr -d '\n' < brokenline10 > longline10
+echo "};" >> longline1
+echo "};" >> longline2
+echo "};" >> longline3
+echo "};" >> longline4
+echo "};" >> longline5
+echo "};" >> longline6
+echo "};" >> longline7
+echo "};" >> longline8
+echo "};" >> longline9
+
+Now, I can re-assemble all this into files of the form
+
+front
+
+chunk of middle blah-blah lines 
+
+front of back
+
+chunk of bad line corresponding to middle stuff 
+
+rest of back 
+
+
+To do this, use 
+    >>> sed '' 'frontmatter' > mondo1.m
+    >>> sed '' 'middlestuff1' >> mondo1.m
+    >>> sed '' 'frontofback' >> mondo1.m
+    >>> sed '' 'longline1' >> mondo1.m
+    >>> sed '' 'veryend' >> mondo1.m
+and repeat for all the chunks.  That should do it.
+
+(tested on Quaternions-conject.m before trying on quaternions.m)
