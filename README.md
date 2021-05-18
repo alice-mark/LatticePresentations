@@ -9,4 +9,4 @@ The final output exists in two forms.  There is one giant file containing the en
 
 The files mondo1modified.m, ..., mondo10modified.m have some some addition relations in them that are true in the abelianization but not in the original group, that make computing the abelianization faster.
 
-QuaternionsTruncated1000.m is exatlyr what it sounds like: the presentations hase been truncated at 1000 relations.  It is used in the proof of Theorem 3.
+QuaternionsTruncated1000.m is exactly what it sounds like: the presentations hase been truncated at 1000 relations.  It is used in the proof of Theorem 3.
